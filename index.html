@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the world with Countries Finder, a powerful tool by Cyril Leblanc. Discover information about countries, their populations. Start your journey today!"
+    />
+    <meta
+      name="keywords"
+      content="country information, population data, geography, world explorer, Cyril Leblanc, countries database, global statistics, regional analysis"
+    />
+    <link href="assets/styles/style.css" rel="stylesheet" />
+    <script src="assets/js/darkMode.js" defer></script>
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/script.js" type="module"></script>
+    <script src="assets/js/search-filters.js" type="module"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/icon-planet.png"
+    />
+    <title>Countries finder</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h1>Countries finder</h1>
+        <span>By Cyril Leblanc</span>
+      </a>
+      <div class="colorMode">
+        <img src="assets/images/icon-moon.png" alt="moon icon" />
+        <p>Dark Mode</p>
+      </div>
+    </header>
+    <main>
+      <div class="inputs">
+        <div class="inputs__text">
+          <label for="text_input"></label>
+          <input
+            type="text"
+            id="text_input"
+            name="text_input"
+            placeholder="Search for a country…"
+          />
+          <svg
+            class="loupe"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0,0,255.99817,255.99817"
+            width="18px"
+            height="18px"
+          >
+            <g fill="#848484" style="mix-blend-mode: normal">
+              <g transform="scale(5.12,5.12)">
+                <path
+                  d="M21,3c-9.39844,0 -17,7.60156 -17,17c0,9.39844 7.60156,17 17,17c3.35547,0 6.46094,-0.98437 9.09375,-2.65625l12.28125,12.28125l4.25,-4.25l-12.125,-12.09375c2.17969,-2.85937 3.5,-6.40234 3.5,-10.28125c0,-9.39844 -7.60156,-17 -17,-17zM21,7c7.19922,0 13,5.80078 13,13c0,7.19922 -5.80078,13 -13,13c-7.19922,0 -13,-5.80078 -13,-13c0,-7.19922 5.80078,-13 13,-13z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          <p class="errorMessage"></p>
+        </div>
+        <div class="filters">
+          <div class="filters_sort">
+            <label for="sort"></label>
+            <select id="sort" name="sort">
+              <option value="" selected>Sort by</option>
+              <option value="asc">Alphabet: A to Z</option>
+              <option value="desc">Alphabet: Z to A</option>
+              <option value="descPop">Population: High to Low</option>
+              <option value="ascPop">Population: Low to High</option>
+            </select>
+            <svg
+              class="arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="M112 184l144 144 144-144"
+              />
+            </svg>
+          </div>
+          <div class="filters_region">
+            <label for="regions"></label>
+            <select id="regions" name="regions">
+              <option value="" selected>Filter by Region</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">America</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+            <svg
+              class="arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="48"
+                d="M112 184l144 144 144-144"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="countries"></div>
+      <div class="pagination"></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --mainFont: "Poppins", sans-serif;
+  --secondaryFont: "Courgette", cursive;
+
+  --background: hsl(0, 0%, 98%);
+  --text: hsl(200, 15%, 8%);
+  --elements: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 62%);
+  --shadow: hsla(200, 15%, 8%, 0.2);
+  --pages: hsl(198, 94%, 38%);
+}
+
+.darkMode {
+  --background: hsl(207, 26%, 17%);
+  --text: hsl(0, 0%, 100%);
+  --elements: hsl(209, 23%, 22%);
+  --input: hsl(0, 0%, 100%);
+  --shadow: hsla(207, 26%, 17%, 1);
+  --pages: hsl(48, 94%, 68%);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--mainFont);
+  background-color: var(--background);
+  color: var(--text);
+}
+
+main {
+  margin: 48px 80px;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+p {
+  opacity: 0.85;
+  margin-bottom: 3px;
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+strong {
+  font-weight: 600;
+}
+
+button {
+  font-family: var(--mainFont);
+  color: var(--text);
+  background-color: var(--elements);
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 4px var(--shadow);
+  cursor: pointer;
+}
+
+// Header
+
+header {
+  background-color: var(--elements);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 80px;
+  box-shadow: 0 3px 5px var(--shadow);
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+header span {
+  font-family: var(--secondaryFont);
+}
+
+.colorMode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.colorMode p {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 1;
+  padding-top: 2px;
+}
+
+// Search Bar
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+label {
+  display: none;
+}
+
+.inputs__text {
+  position: relative;
+}
+
+#text_input,
+#regions,
+#sort {
+  font-family: var(--mainFont);
+  font-size: 15px;
+  height: 56px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--elements);
+  color: var(--text);
+  box-shadow: 0 0 4px var(--shadow);
+}
+
+#text_input {
+  width: 480px;
+  padding-left: 62px;
+}
+
+.loupe {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  transform: translate(-50%, -50%);
+}
+
+.loupe path {
+  fill: var(--input);
+}
+
+.errorMessage {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  color: red;
+}
+
+#text_input::placeholder {
+  font-family: var(--mainFont);
+  font-size: 15px;
+  color: var(--input);
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+}
+
+#regions,
+#sort {
+  width: 200px;
+  cursor: pointer;
+  padding-left: 24px;
+  appearance: none;
+}
+
+#sort {
+  width: 260px;
+}
+
+.filters_sort,
+.filters_region {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+}
+
+.arrow path {
+  stroke: var(--text);
+}
+
+// Results
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3em;
+}
+
+.countries > div {
+  background-color: var(--elements);
+  border-radius: 8px;
+  box-shadow: 0 0 8px var(--shadow);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.countries > div:hover {
+  transform: scale(1.02);
+}
+
+.countries > div > a > div {
+  margin: 0 24px 45px 24px;
+}
+
+.countries div img {
+  border-radius: 8px 8px 2px 2px;
+  width: 100%;
+  height: 180px;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.countries h2 {
+  padding: 20px 0;
+}
+
+// pages
+
+.pagination {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 5px 20px;
+}
+
+button.active {
+  color: var(--pages);
+}
+
+// Details
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 30px 4px 30px;
+  border-radius: 5px;
+  background-color: var(--elements);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.back svg {
+  width: 20px;
+  margin-bottom: 2px;
+}
+
+.country-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 80px;
+}
+
+.country-details img {
+  min-width: 560px;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px var(--shadow);
+}
+
+.text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 120px 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "left right"
+    "bottom bottom";
+}
+
+.text p {
+  margin-bottom: 8px;
+}
+
+.text_title {
+  grid-area: title;
+  align-self: center;
+  font-size: 32px;
+}
+
+.text_left {
+  grid-area: left;
+}
+
+.text_right {
+  grid-area: right;
+  justify-self: center;
+}
+
+.text_bottom {
+  grid-area: bottom;
+  align-self: center;
+  display: flex;
+  gap: 10px;
+}
+
+.text_bottom p {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.text_bottom button {
+  margin: 3px 3px;
+  padding: 7px 30px;
+  transition: 0.3s ease-in-out;
+}
+
+.text_bottom button:hover {
+  background-color: var(--input);
+  color: var(--elements);
+}
+
+@media all and (max-width: 1340px) {
+  // Search Bar
+
+  #text_input {
+    width: 380px;
+  }
+
+  #regions,
+  #sort {
+    width: 170px;
+  }
+
+  #sort {
+    width: 240px;
+  }
+
+  // Results
+
+  .countries {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // Details
+
+  .country-details {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 60px;
+  }
+
+  .country-details img {
+    min-width: 420px;
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .text_title {
+    justify-self: center;
+    font-size: 22px;
+  }
+}
+
+@media all and (max-width: 1060px) {
+  // Search Bar
+
+  .inputs {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #text_input {
+    width: 500px;
+  }
+
+  // Results
+
+  .countries {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 760px) {
+  main {
+    margin: 48px 25px;
+  }
+
+  // Header
+
+  header {
+    padding: 23px 25px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  // Search Bar
+
+  .inputs {
+    flex-direction: column;
+    align-items: initial;
+  }
+
+  #text_input {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Results
+
+  .countries {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .countries div img {
+    height: 190px;
+  }
+
+  // Details
+
+  .country-details {
+    gap: 20px;
+  }
+
+  .country-details img {
+    min-width: 320px;
+  }
+
+  .text {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr 0.5fr 1.5fr;
+    grid-template-areas:
+      "title"
+      "left"
+      "right"
+      "bottom";
+    gap: 30px;
+  }
+
+  .text_left,
+  .text_right,
+  .text_bottom {
+    justify-self: flex-start;
+  }
+
+  .text_bottom {
+    align-self: flex-start;
+    display: inline-block;
+  }
+
+  .text_bottom p {
+    margin-bottom: 8px;
+  }
+}
